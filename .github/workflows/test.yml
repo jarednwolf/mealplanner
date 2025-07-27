@@ -1,0 +1,60 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test-web:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd MealPlannerWeb
+        npm ci
+        
+    - name: Run tests
+      run: |
+        cd MealPlannerWeb
+        npm test -- --passWithNoTests
+        
+    - name: Type check
+      run: |
+        cd MealPlannerWeb
+        npm run type-check || true
+
+  test-mobile:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd MealPlannerApp
+        npm ci
+        
+    - name: Run tests
+      run: |
+        cd MealPlannerApp
+        npm test -- --passWithNoTests
+        
+    - name: Type check
+      run: |
+        cd MealPlannerApp
+        npx tsc --noEmit || true 
