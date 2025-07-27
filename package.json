@@ -1,0 +1,36 @@
+{
+  "name": "meal-planner-monorepo",
+  "version": "1.0.0",
+  "description": "Meal Planner - Mobile and Web Apps",
+  "private": true,
+  "scripts": {
+    "sync:mtw": "node sync-shared-code.js mobile-to-web",
+    "sync:wtm": "node sync-shared-code.js web-to-mobile",
+    "sync:watch": "node sync-shared-code.js watch",
+    "dev:web": "cd MealPlannerWeb && npm run dev",
+    "dev:mobile": "cd MealPlannerApp && npm start",
+    "dev:functions": "cd MealPlannerApp/functions && npm run serve",
+    "install:all": "npm run install:mobile && npm run install:web && npm run install:functions",
+    "install:mobile": "cd MealPlannerApp && npm install",
+    "install:web": "cd MealPlannerWeb && npm install",
+    "install:functions": "cd MealPlannerApp/functions && npm install",
+    "build:web": "cd MealPlannerWeb && npm run build",
+    "deploy:functions": "cd MealPlannerApp/functions && npm run deploy",
+    "test:mobile": "cd MealPlannerApp && npm test",
+    "test:web": "cd MealPlannerWeb && npm test",
+    "lint:mobile": "cd MealPlannerApp && npm run lint",
+    "lint:web": "cd MealPlannerWeb && npm run lint"
+  },
+  "keywords": [
+    "meal-planning",
+    "react",
+    "react-native",
+    "firebase"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^17.2.0",
+    "firebase": "^12.0.0"
+  }
+}

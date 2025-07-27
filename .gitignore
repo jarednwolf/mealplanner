@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Firebase
+.firebase/
+firebase-debug.log
+.firebaserc
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+pubsub-debug.log
+auth_export/
+firestore_export/
+
+# React Native
+*.jsbundle
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+android/.gradle/
+android/app/build/
+android/build/
+*.apk
+*.aab
+*.ipa
+
+# Web build
+MealPlannerWeb/dist/
+MealPlannerWeb/build/
+
+# Functions build
+MealPlannerApp/functions/lib/
+MealPlannerWeb/functions/lib/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# OS files
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+
+# Production
+dist/
+build/
+
+# Misc
+.cache/
+.parcel-cache/

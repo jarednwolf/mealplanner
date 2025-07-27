@@ -1,0 +1,42 @@
+{
+  "syncPaths": [
+    {
+      "path": "src/services",
+      "description": "Business logic services (AI, Recipe, Grocery, etc.)",
+      "sync": true
+    },
+    {
+      "path": "src/types",
+      "description": "TypeScript type definitions",
+      "sync": true
+    },
+    {
+      "path": "src/utils",
+      "description": "Utility functions",
+      "sync": true
+    },
+    {
+      "path": "src/config/env.ts",
+      "description": "Environment configuration",
+      "sync": true
+    },
+    {
+      "path": "src/config/firebase.ts",
+      "description": "Firebase configuration",
+      "sync": true
+    }
+  ],
+  "excludePatterns": [
+    "node_modules",
+    ".test.",
+    ".spec.",
+    "__tests__",
+    "__mocks__",
+    ".backup"
+  ],
+  "options": {
+    "createBackups": true,
+    "showGitWarnings": true,
+    "verboseLogging": false
+  }
+} 

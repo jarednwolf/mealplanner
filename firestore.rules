@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Users can read and write their own profile
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Meal plans - users can only access their own
+    match /mealPlans/{mealPlanId} {
+      allow read, write: if isAuthenticated() && 
+        (resource == null || resource.data.userId == request.auth.uid) &&
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Grocery lists - users can only access their own
+    match /groceryLists/{listId} {
+      allow read, write: if isAuthenticated() && 
+        (resource == null || resource.data.userId == request.auth.uid) &&
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Budget tracking - users can only access their own
+    match /budgets/{budgetId} {
+      allow read, write: if isAuthenticated() && 
+        (resource == null || resource.data.userId == request.auth.uid) &&
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Pantry items - users can only access their own
+    match /pantryItems/{userId}/{itemId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Recipe ratings and feedback - users can only access their own
+    match /feedback/{userId}/{feedbackId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Shared recipes collection - all authenticated users can read
+    match /recipes/{recipeId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins can write recipes
+    }
+  }
+} 

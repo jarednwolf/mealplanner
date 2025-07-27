@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3 {
+    font-feature-settings: 'ss01' on, 'ss02' on;
+  }
+}
+
+/* Custom font classes for variety */
+.font-display {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* Subtle entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Gradient background fixes for better browser support */
+.gradient-bg-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-bg-secondary {
+  background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+}
+
+.gradient-bg-accent {
+  background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+}
+
+.gradient-bg-info {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.gradient-bg-subtle {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+/* Animation delays for pulse effect */
+@keyframes delayed-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Smooth number transitions */
+.number-transition {
+  transition: all 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+} 
